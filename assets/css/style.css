@@ -2,11 +2,7 @@
     padding: 0 auto;
     border: 0;
     margin:0px auto;
-}
-
-.col-2{
-    border: 5px solid white;
-}
+}   
 
 h1{
     text-align: center;
@@ -15,3 +11,12 @@ h1{
 .show{
     display: flex;
 }
+
+img {
+    height: 10em;
+}
+
+.imgContainer {
+    height: 100%;
+    width: 100%;
+} 

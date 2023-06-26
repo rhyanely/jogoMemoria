@@ -3,6 +3,8 @@
 const imagem = document.querySelectorAll('img');
 const espacoImg = document.querySelectorAll('.col-2')
 const button = document.querySelector('.btn');
+let containerImg = document.querySelectorAll('.imgContainer')
+
 
 // AJUSTANDO TAMANHO DAS IMAGENS
 
@@ -34,12 +36,47 @@ button.addEventListener("click", function(){
 
 });
 
+let checkoutImgPrimary;
+let checkoutImgSecondary;
+let i=1;
+
+containerImg.forEach(img => {
+    img.addEventListener('click', () => { //evento de click é adionada pra cara elemento
+
+        checkoutImgPrimary = imagem[img.id-1] //checkoutImgPrimary é igual a div imagem
+
+        imagem[img.id-1].classList.remove('d-none'); //remove classe da imagem, para quando o evento de click ser acionado, ela será exibida de acordo com a sua div
+        
+
+        function delay() {
+            
+            if (checkoutImgPrimary.src != checkoutImgSecondary.src) { //quando o atributo da imagem checkoutImgPrimary for diferente do atributo da imagem checkoutImgSecondary, as respectivas irão desaparecer
+                checkoutImgPrimary.classList.add('d-none');
+                checkoutImgSecondary.classList.add('d-none');
+            }
+        }
+
+        if (i == 1) {
+            checkoutImgSecondary = checkoutImgPrimary
+        }
+
+        if (i == 2) {
+            setTimeout(delay, 1000); // chama a function e faz com que tal demore 1 segundo para ser executada, assim não fazendo a imagem desaparecer de uma vez na hora de clicar
+
+            i=0;
+        }
+
+            
+
+        i++ //contador para que as ações ocorram nos conformes
+    })
+    
+});
 
 // INSERINDO FUNCIONALIDADE AO CLICAR NA IMAGEM
 
-function exibir(numero){
 
-        let imagem = document.getElementById(numero)
-        imagem.className='img d-flex'
 
- }
+    
+    
+
